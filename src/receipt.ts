@@ -9,10 +9,7 @@ const roundAmount = (amount: number, roundDigit: number): number => {
   );
 };
 
-export const getReceiptDetails = (
-  inputItems: Item[],
-  taxDetails: TaxRate,
-): Record<string, number> => {
+export const getReceiptDetails = (inputItems: Item[], taxDetails: TaxRate): Record<string, number> => {
   const receiptDetails = {};
   let salesTaxes = 0.0;
   let totalPrice = 0.0;
@@ -24,8 +21,7 @@ export const getReceiptDetails = (
     const itemTax = calculateItemTax(item, taxDetails);
     const itemPrice = (item.price + itemTax) * item.quantity;
 
-    receiptDetails[`${item.quantity} ${item.isImported ? 'imported ' : ''}${item.name}`] =
-      roundAmount(itemPrice, 2);
+    receiptDetails[`${item.quantity} ${item.isImported ? 'imported ' : ''}${item.name}`] = roundAmount(itemPrice, 2);
     salesTaxes = roundAmount(salesTaxes + itemTax * item.quantity, 2);
     totalPrice = roundAmount(totalPrice + itemPrice, 2);
   });
