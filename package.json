@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "rimraf ./build && npx tsc",
-    "start-dev": "ts-node ./src/index.ts",
+    "start:dev": "ts-node ./src/index.ts",
     "start": "npm run build && node build/src/index.js",
     "lint": "npx eslint \"src/**/*.{ts,js}\"",
     "lint:fix": "npx eslint \"src/**/*.{ts,js}\" --fix",
