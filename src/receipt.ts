@@ -31,9 +31,3 @@ export const getReceiptDetails = (inputItems: Item[], taxDetails: TaxRate): Reco
 
   return receiptDetails;
 };
-
-export const logReceipt = (receipt: Record<string, number>): void => {
-  Object.entries(receipt).forEach(([key, value]) => {
-    console.log(`${key}: ${parseFloat(`${value}`).toFixed(2)}`);
-  });
-};

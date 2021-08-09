@@ -10,7 +10,5 @@ export const calculateItemTax = (item: Item, taxDetails: TaxRate): number => {
   const itemImportDuty = item.isImported ? importDuty : 0;
   const totalTaxRate = itemSalesTaxRate + itemImportDuty;
   // rounding to nearest 0.05
-  const tax = roundTo005(item.price, totalTaxRate);
-  console.log(tax, '....tax for', item.name);
-  return tax;
+  return roundTo005(item.price, totalTaxRate);
 };
